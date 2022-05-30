@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/usual_login.xml" value="0.275" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/usuallogin.xml" value="0.275" />
       </map>
     </option>
   </component>
