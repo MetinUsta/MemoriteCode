@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.3675" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_landscape_24.xml" value="0.1795" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.2135" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_entry_edit_view.xml" value="0.22" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_maps.xml" value="0.19140625" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_memo_list_view.xml" value="0.225390625" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/recyclerview_item.xml" value="0.21484375" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/usual_login.xml" value="0.275" />

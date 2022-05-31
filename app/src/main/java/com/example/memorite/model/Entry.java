@@ -6,6 +6,7 @@ public class Entry {
     private byte[] image;
     private String memo;
     private Integer mood;
+    private String password;
     private Double latitude, longitude, altitude;
 
     public Entry(String title, String date, byte[] image, String memo, Integer mood, Double latitude, Double longitude, Double altitude) {
@@ -91,5 +92,13 @@ public class Entry {
 
     public void setAltitude(Double altitude) {
         this.altitude = altitude;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.memorite.EntryEditView;
 import com.example.memorite.MainActivity;
 import com.example.memorite.R;
 import com.example.memorite.model.Entry;
@@ -55,7 +56,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, EntryEditView.class);
                 intent.putExtra("position", position);
                 context.startActivity(intent);
             }
