@@ -2,6 +2,7 @@ package com.example.memorite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             if(!pin_text_box.getEditText().getText().toString().isEmpty()){
                 String password = first_time.getString("general_pass", "None");
                 if(pin_text_box.getEditText().getText().toString().equals(password)){
-//                    TODO start view_2
+                    Intent intent = new Intent(getApplicationContext(), MemoListView.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(this, "You have entered a wrong pin", Toast.LENGTH_SHORT).show();
                 }
