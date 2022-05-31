@@ -1,16 +1,20 @@
 package com.example.memorite.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.memorite.MainActivity;
 import com.example.memorite.R;
 import com.example.memorite.model.Entry;
 
@@ -48,6 +52,47 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>{
             holder.cardImage.setImageResource(R.drawable.ic_baseline_landscape_24);
         }
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("position", position);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.cardOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(context, view);
+                popupMenu.getMenuInflater().inflate(R.menu.memolist_menu_popup, popupMenu.getMenu());
+                popupMenu.show();
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.deleteOption:
+                                deleteEntry(position);
+                                break;
+                            case R.id.shareOption:
+                                shareEntry(position);
+                                break;
+                        }
+                        return true;
+                    }
+                });
+            }
+        });
+    }
+
+    private void deleteEntry(int position){
+        entryArrayList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, entryArrayList.size());
+    }
+
+    private void shareEntry(int position){
+//        TODO
     }
 
     @Override
