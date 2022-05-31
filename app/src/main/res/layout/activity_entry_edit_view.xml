@@ -115,6 +115,7 @@
         android:layout_width="76dp"
         android:layout_height="37dp"
         android:layout_marginStart="5dp"
+        android:onClick="saveEntryButtonPressed"
         android:text="Button"
         app:layout_constraintStart_toEndOf="@+id/pinInputBox"
         app:layout_constraintTop_toTopOf="@+id/pinInputBox" />

@@ -32,19 +32,24 @@ public class MemoListView extends AppCompatActivity {
         memoRV = findViewById(R.id.memoRecyclerView);
 
         entryArrayList = new ArrayList<>();
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
-        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 2.0, 3.0, 4.0));
+
+
+
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
+        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0, 4.0));
 
         entryAdapter = new EntryAdapter(this, entryArrayList);
 

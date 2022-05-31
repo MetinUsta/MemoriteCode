@@ -3,13 +3,13 @@ package com.example.memorite.model;
 public class Entry {
     private String title;
     private String date;
-    private byte[] image;
+    private String image;
     private String memo;
     private Integer mood;
     private String password;
     private Double latitude, longitude, altitude;
 
-    public Entry(String title, String date, byte[] image, String memo, Integer mood, Double latitude, Double longitude, Double altitude) {
+    public Entry(String title, String date, String image, String memo, Integer mood, Double latitude, Double longitude, Double altitude) {
         this.title = title;
         this.date = date;
         this.image = image;
@@ -46,11 +46,11 @@ public class Entry {
         this.date = date;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

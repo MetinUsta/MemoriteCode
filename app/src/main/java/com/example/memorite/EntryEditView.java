@@ -48,6 +48,8 @@ public class EntryEditView extends AppCompatActivity {
     private Button saveButton;
     private ImageView memoImage;
     private Context context;
+    private Boolean imageSetted = false;
+    private String imagePath;
     private double lt = -1.0, ln = -1.0;
 
     @Override
@@ -91,8 +93,9 @@ public class EntryEditView extends AppCompatActivity {
         }
 
         if(entry.getImage() != null){
-            Bitmap bmp = BitmapFactory.decodeByteArray(entry.getImage(), 0, entry.getImage().length);
-            memoImage.setImageBitmap(bmp);
+//            Bitmap bmp = BitmapFactory.decodeByteArray(entry.getImage(), 0, entry.getImage().length);
+//            memoImage.setImageBitmap(bmp);
+            memoImage.setImageBitmap(BitmapFactory.decodeFile(entry.getImage()));
         }
 
         if(entry.getMood() != null){
@@ -172,8 +175,10 @@ public class EntryEditView extends AppCompatActivity {
                         cursor.moveToFirst();
                         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                         String picturePath = cursor.getString(columnIndex);
+                        imagePath = picturePath;
                         cursor.close();
                         memoImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                        imageSetted = true;
                     }
                 }
             }
@@ -228,11 +233,9 @@ public class EntryEditView extends AppCompatActivity {
         currEntry.setMood(moodButtons.getCheckedRadioButtonId());
         currEntry.setTitle(memoTitle.getText().toString());
 
-        Bitmap bitmap = ((BitmapDrawable) memoImage.getDrawable()).getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        currEntry.setImage(imageBytes);
+        if(imageSetted){
+            currEntry.setImage(imagePath);
+        }
         if(!pinInputBox.getEditText().getText().toString().isEmpty()){
             currEntry.setPassword(pinInputBox.getEditText().getText().toString());
         }

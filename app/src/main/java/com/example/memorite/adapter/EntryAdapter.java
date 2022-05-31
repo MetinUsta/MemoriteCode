@@ -2,6 +2,9 @@ package com.example.memorite.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,9 +14,12 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.memorite.EntryEditView;
 import com.example.memorite.MainActivity;
 import com.example.memorite.R;
@@ -47,7 +53,19 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>{
 
         if(entry.getImage() != null){
             System.out.println("Not null");
-            Glide.with(context).asBitmap().load(entry.getImage()).into(holder.cardImage);
+//            Glide.with(context).asBitmap().load(BitmapFactory.decodeFile(entry.getImage())).into(holder.cardImage);
+            Glide.with(context).asBitmap().load(entry.getImage()).error(R.drawable.ic_baseline_landscape_24).into(new CustomTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                    holder.cardImage.setImageBitmap(resource);
+                    holder.cardImage.buildDrawingCache();
+                }
+
+                @Override
+                public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                }
+            });
         }else{
             System.out.println("Null");
             holder.cardImage.setImageResource(R.drawable.ic_baseline_landscape_24);
