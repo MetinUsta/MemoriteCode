@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.memorite.EntryEditView;
@@ -54,7 +55,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>{
         if(entry.getImage() != null){
             System.out.println("Not null");
 //            Glide.with(context).asBitmap().load(BitmapFactory.decodeFile(entry.getImage())).into(holder.cardImage);
-            Glide.with(context).asBitmap().load(entry.getImage()).error(R.drawable.ic_baseline_landscape_24).into(new CustomTarget<Bitmap>() {
+            Glide.with(context).asBitmap().load(entry.getImage()).error(R.drawable.ic_baseline_landscape_24).diskCacheStrategy(DiskCacheStrategy.ALL).into(new CustomTarget<Bitmap>() {
                 @Override
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                     holder.cardImage.setImageBitmap(resource);
