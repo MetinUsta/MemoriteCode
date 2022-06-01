@@ -1,9 +1,12 @@
 package com.example.memorite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
             pin_text_box = findViewById(R.id.pinTextInputLayout);
             enter_button = findViewById(R.id.enterButton);
         }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
     }
 
     public void onEnterButtonPressed(View view){
@@ -46,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
             if(!pin_text_box.getEditText().getText().toString().isEmpty()){
                 first_time.edit().putString("general_pass", pin_text_box.getEditText().getText().toString()).apply();
+                Intent intent = new Intent(getApplicationContext(), MemoListView.class);
+                startActivity(intent);
+                finish();
             }else{
                 Toast.makeText(this, "Please Enter A Pin", Toast.LENGTH_SHORT).show();
             }

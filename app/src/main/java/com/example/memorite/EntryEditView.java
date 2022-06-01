@@ -41,7 +41,7 @@ public class EntryEditView extends AppCompatActivity {
     private Button dateButton;
     private int position;
     private EditText memoTitle;
-    private EditText memoContent;
+    private TextInputLayout memoContent;
     private Button mapButton;
     private RadioGroup moodButtons;
     private TextInputLayout pinInputBox;
@@ -85,10 +85,10 @@ public class EntryEditView extends AppCompatActivity {
         }
 
         if(entry.getMemo() != null){
-            memoContent.setText(entry.getMemo());
+            memoContent.getEditText().setText(entry.getMemo());
         }
 
-        if(entry.getDate() != null){
+        if(!entry.getDate().isEmpty()){
             dateButton.setText(entry.getDate());
         }
 
@@ -119,7 +119,7 @@ public class EntryEditView extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        memoContent.setText(entry.getMemo());
+        memoContent.getEditText().setText(entry.getMemo());
     }
 
     private String getTodaysDate() {
@@ -222,7 +222,7 @@ public class EntryEditView extends AppCompatActivity {
             Toast.makeText(context, "Please choose a mood", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(memoContent.getText().toString().isEmpty()){
+        if(memoContent.getEditText().getText().toString().isEmpty()){
             Toast.makeText(context, "Please fill the content of the diary entry", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -231,7 +231,7 @@ public class EntryEditView extends AppCompatActivity {
         currEntry.setDate(dateButton.getText().toString());
         currEntry.setLatitude(lt);
         currEntry.setLongitude(ln);
-        currEntry.setMemo(memoContent.getText().toString());
+        currEntry.setMemo(memoContent.getEditText().getText().toString());
         currEntry.setMood(moodButtons.getCheckedRadioButtonId());
         currEntry.setTitle(memoTitle.getText().toString());
 

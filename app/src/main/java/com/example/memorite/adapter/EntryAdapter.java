@@ -174,10 +174,11 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.ViewHolder>{
 
         canvas.drawText(entry.getTitle(), 30, 40, textPaint);
 
-        Bitmap bmp = BitmapFactory.decodeFile(entry.getImage());
-        Bitmap scaledBmp = Bitmap.createScaledBitmap(bmp, 400, 200, false);
-        canvas.drawBitmap(scaledBmp, 30, 100, imagePaint);
-
+        if(entry.getImage() != null){
+            Bitmap bmp = BitmapFactory.decodeFile(entry.getImage());
+            Bitmap scaledBmp = Bitmap.createScaledBitmap(bmp, 400, 200, false);
+            canvas.drawBitmap(scaledBmp, 30, 100, imagePaint);
+        }
         drawTextAndBreakLine(canvas, textPaint, 30, 340, 780, entry.getMemo());
 
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());

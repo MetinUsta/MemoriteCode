@@ -29,6 +29,7 @@ public class MemoListView extends AppCompatActivity {
 
     private RecyclerView memoRV;
     private FloatingActionButton addEntryButton;
+    private FloatingActionButton showLocationsButton;
 
     static ArrayList<Entry> entryArrayList;
     static EntryAdapter entryAdapter;
@@ -42,6 +43,7 @@ public class MemoListView extends AppCompatActivity {
 
         memoRV = findViewById(R.id.memoRecyclerView);
         addEntryButton = findViewById(R.id.addEntryButton);
+        showLocationsButton = findViewById(R.id.showLocationsButton);
 
         entryArrayList = new ArrayList<>();
 
@@ -61,25 +63,6 @@ public class MemoListView extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
-
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-//        entryArrayList.add(new Entry("Test", "31.05.2022", "Bugün Android Projesi ile uğraştım", 1, 46.0, 25.0));
-
         entryAdapter = new EntryAdapter(this, entryArrayList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -95,6 +78,7 @@ public class MemoListView extends AppCompatActivity {
                 if (dy > 0 ||dy<0 && addEntryButton.isShown())
                 {
                     addEntryButton.hide();
+                    showLocationsButton.hide();
                 }
             }
 
@@ -104,10 +88,17 @@ public class MemoListView extends AppCompatActivity {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE)
                 {
                     addEntryButton.show();
+                    showLocationsButton.show();
                 }
 
                 if(!memoRV.canScrollVertically(1)){
-                    addEntryButton.hide();
+                    if(!memoRV.canScrollVertically(-1)){
+                        addEntryButton.show();
+                        showLocationsButton.show();
+                    }else{
+                        addEntryButton.hide();
+                        showLocationsButton.hide();
+                    }
                 }
                 super.onScrollStateChanged(recyclerView, newState);
             }
@@ -121,7 +112,7 @@ public class MemoListView extends AppCompatActivity {
     }
 
     public void addNewEntry(View view){
-        Entry newEntry = new Entry("", "null", null, null, null, null);
+        Entry newEntry = new Entry("", "", null, null, null, null);
         entryArrayList.add(newEntry);
 
         entryAdapter.notifyItemInserted(entryArrayList.indexOf(newEntry));
@@ -134,51 +125,25 @@ public class MemoListView extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
         FileOutputStream fos = null;
         try {
             fos = this.openFileOutput("memos", Context.MODE_PRIVATE);
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
-            System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
             ObjectOutputStream os = new ObjectOutputStream(fos);
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEE");
 
             os.writeObject(entryArrayList);
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
             os.close();
             fos.close();
-            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-            System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         super.onStop();
+    }
+
+    public void showAllLocations(View view){
+        Intent intent = new Intent(this, MapAllLocations.class);
+        startActivity(intent);
+
     }
 }

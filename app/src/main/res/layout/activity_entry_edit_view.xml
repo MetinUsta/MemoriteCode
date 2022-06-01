@@ -7,41 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".EntryEditView">
 
-    <EditText
-        android:id="@+id/memoContent"
-        android:layout_width="357dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textCapSentences|textMultiLine"
-        android:maxLength="2048"
-        android:maxLines="20"
-        android:scrollHorizontally="false"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/memoImage" />
 
     <Button
         android:id="@+id/datePickerButton"
         style="?android:spinnerStyle"
-        android:layout_width="125dp"
+        android:layout_width="155dp"
         android:layout_height="46dp"
-        android:layout_marginTop="15dp"
-        android:onClick="openDatePicker"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:elevation="2dp"
+        android:textSize="20sp"
         android:text="01.01.2022"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/moodButtons"
+        android:onClick="openDatePicker"
+        android:textColor="@color/cdarkgray"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moodButtons" />
 
     <Button
         android:id="@+id/mapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:onClick="onMapButtonPressed"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/moodButtons"
+        android:backgroundTint="@color/cdarkgray"
+        android:textColor="@color/white"
+        android:text="CHOOSE LOCATION"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moodButtons" />
 
     <RadioGroup
@@ -56,39 +48,48 @@
 
         <RadioButton
             android:id="@+id/radioButton7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_sentiment_very_satisfied_24"
-            android:text="Satisfied" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:button="@null"
+            android:background="@drawable/rb_satisfied"/>
 
         <RadioButton
             android:id="@+id/radioButton9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_sentiment_dissatisfied_24"
-            android:text="Neutral" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:button="@null"
+            android:background="@drawable/rb_dissatisfied"
+            />
 
         <RadioButton
             android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_sentiment_very_dissatisfied_24"
-            android:text="Dissatisfied" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:button="@null"
+            android:background="@drawable/rb_very_dissatisfied"/>
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pinInputBox"
         android:layout_width="118dp"
-        android:layout_height="40dp"
+        android:layout_height="55dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeColor="@color/cdarkgray"
+        app:hintEnabled="false"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toStartOf="@+id/saveButton">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:maxLines="1"
+            android:inputType="number"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:textColorHint="@color/cdarkgray"
+            android:textColor="@color/cdarkgray"
+            android:hint="Pin" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -97,9 +98,11 @@
         android:layout_height="37dp"
         android:layout_marginEnd="15dp"
         android:onClick="saveEntryButtonPressed"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pinInputBox" />
+        android:text="SAVE"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/cdarkgray"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pinInputBox"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/memoImage"
@@ -121,6 +124,35 @@
         app:layout_constraintEnd_toEndOf="@+id/memoImage"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/memoContent"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="2048"
+        app:counterTextColor="@color/cdarkgray"
+        app:boxStrokeColor="@color/cdarkgray"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/cdarkgray"
+        android:textColorHint="@color/cdarkgray"
+        android:layout_marginTop="10dp"
+        app:helperTextEnabled="true"
+        app:helperText="Write about your day"
+        app:helperTextTextColor="@color/cdarkgray"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memoImage">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:minLines="2"
+            android:textColor="@color/cdarkgray"
+            android:gravity="top|left"
+            android:hint="Content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <EditText
         android:id="@+id/memoTitle"
         android:layout_width="wrap_content"
@@ -128,8 +160,13 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:gravity="center"
+        android:padding="8dp"
         android:text="Name"
+        android:hint="Title"
+        android:textColorHint="@color/cdarkgray"
+        android:gravity="center"
+        android:textColor="@color/cdarkgray"
+        android:background="@drawable/edit_text_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

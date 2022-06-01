@@ -3,9 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/edit_text_border.xml" value="0.3675" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.3675" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_landscape_24.xml" value="0.1795" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.2645" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.2135" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_dissatisfied_24.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_dissatisfied_24_checked.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_very_dissatisfied_24.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_very_dissatisfied_24_checked.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_very_satisfied_24.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/ic_baseline_sentiment_very_satisfied_24_checked.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/login_input_selector.xml" value="0.3125" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/rb_dissatisfied.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/rb_satisfied.xml" value="0.292" />
+        <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/drawable/rb_very_dissatisfied.xml" value="0.292" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_entry_edit_view.xml" value="0.22" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Metin/AndroidStudioProjects/Memorite/app/src/main/res/layout/activity_maps.xml" value="0.19140625" />
