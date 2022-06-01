@@ -1,6 +1,8 @@
 package com.example.memorite.model;
 
-public class Entry {
+import java.io.Serializable;
+
+public class Entry implements Serializable {
     private String title;
     private String date;
     private String image;
@@ -9,7 +11,7 @@ public class Entry {
     private String password;
     private Double latitude, longitude, altitude;
 
-    public Entry(String title, String date, String image, String memo, Integer mood, Double latitude, Double longitude, Double altitude) {
+    public Entry(String title, String date, String image, String memo, Integer mood, Double latitude, Double longitude) {
         this.title = title;
         this.date = date;
         this.image = image;
@@ -17,17 +19,15 @@ public class Entry {
         this.mood = mood;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.altitude = altitude;
     }
 
-    public Entry(String title, String date, String memo, Integer mood, Double latitude, Double longitude, Double altitude) {
+    public Entry(String title, String date, String memo, Integer mood, Double latitude, Double longitude) {
         this.title = title;
         this.date = date;
         this.memo = memo;
         this.mood = mood;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.altitude = altitude;
     }
 
     public String getTitle() {

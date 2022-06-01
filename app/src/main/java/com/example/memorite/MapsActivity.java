@@ -72,8 +72,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onSuccess(Location location) {
                 if(location != null){
+                    lt = getIntent().getDoubleExtra("lt", -1.0);
+                    ln = getIntent().getDoubleExtra("ln", -1.0);
+                    mMap.clear();
+                    if(lt == -1 || ln == -1){
                     lt = location.getLatitude();
                     ln = location.getLongitude();
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(lt, ln)).title("Your Location")).showInfoWindow();
+                    }else{
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(lt, ln)).title("Memo Location")).showInfoWindow();
+                    }
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lt, ln)));
                 }
             }
         });
@@ -85,7 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 lt = latLng.latitude;
                 ln = latLng.longitude;
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(latLng).title("Selected Location"));
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Selected Location")).showInfoWindow();
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             }
         });
@@ -106,7 +115,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     ln = location.getLongitude();
 
                     mMap.clear();
-                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("Your Location"));
+                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("Your Location")).showInfoWindow();
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(), location.getLongitude())));
                 }
             }

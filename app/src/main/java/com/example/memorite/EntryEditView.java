@@ -40,7 +40,7 @@ public class EntryEditView extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private int position;
-    private TextView memoTitle;
+    private EditText memoTitle;
     private EditText memoContent;
     private Button mapButton;
     private RadioGroup moodButtons;
@@ -186,6 +186,8 @@ public class EntryEditView extends AppCompatActivity {
 
     public void onMapButtonPressed(View view){
         Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+        intent.putExtra("lt", lt);
+        intent.putExtra("ln", ln);
         mapActivityResultLauncher.launch(intent);
 
     }

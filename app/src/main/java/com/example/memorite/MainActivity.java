@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 if(pin_text_box.getEditText().getText().toString().equals(password)){
                     Intent intent = new Intent(getApplicationContext(), MemoListView.class);
                     startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(this, "You have entered a wrong pin", Toast.LENGTH_SHORT).show();
                 }

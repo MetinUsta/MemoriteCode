@@ -10,4 +10,8 @@
         android:id="@+id/shareOption"
         android:title="Share"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/pdfOption"
+        android:title="Export PDF"
+        app:showAsAction="never" />
 </menu>

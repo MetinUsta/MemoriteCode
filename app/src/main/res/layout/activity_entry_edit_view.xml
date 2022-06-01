@@ -3,34 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".EntryEditView">
-
-    <TextView
-        android:id="@+id/memoTitle"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        android:background="@color/teal_200"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/memoContent"
         android:layout_width="357dp"
-        android:layout_height="190dp"
+        android:layout_height="230dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textCapSentences|textMultiLine"
-        android:scrollHorizontally="false"
-        android:maxLines="20"
         android:maxLength="2048"
+        android:maxLines="20"
+        android:scrollHorizontally="false"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,43 +27,38 @@
         style="?android:spinnerStyle"
         android:layout_width="125dp"
         android:layout_height="46dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:onClick="openDatePicker"
         android:text="01.01.2022"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/memoContent"
-        app:layout_constraintTop_toBottomOf="@+id/memoContent" />
+        app:layout_constraintEnd_toEndOf="@+id/moodButtons"
+        app:layout_constraintTop_toBottomOf="@+id/moodButtons" />
 
     <Button
         android:id="@+id/mapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:onClick="onMapButtonPressed"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/moodButtons"
-        app:layout_constraintTop_toBottomOf="@+id/memoContent" />
+        app:layout_constraintTop_toBottomOf="@+id/moodButtons" />
 
     <RadioGroup
         android:id="@+id/moodButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/mapButton"
-        tools:layout_editor_absoluteX="27dp">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memoContent">
 
         <RadioButton
             android:id="@+id/radioButton7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_baseline_sentiment_very_satisfied_24"
-            android:text="Very Satisfied" />
-
-        <RadioButton
-            android:id="@+id/radioButton8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_sentiment_satisfied_alt_24"
             android:text="Satisfied" />
 
         <RadioButton
@@ -85,24 +66,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_baseline_sentiment_dissatisfied_24"
-            android:text="Dissatisfied" />
+            android:text="Neutral" />
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_baseline_sentiment_very_dissatisfied_24"
-            android:text="Very Dissatisfied" />
+            android:text="Dissatisfied" />
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pinInputBox"
         android:layout_width="118dp"
         android:layout_height="40dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/moodButtons">
+        app:layout_constraintEnd_toStartOf="@+id/saveButton">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -114,17 +95,17 @@
         android:id="@+id/saveButton"
         android:layout_width="76dp"
         android:layout_height="37dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginEnd="15dp"
         android:onClick="saveEntryButtonPressed"
         android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/pinInputBox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pinInputBox" />
 
     <ImageView
         android:id="@+id/memoImage"
         android:layout_width="357dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memoTitle"
@@ -139,5 +120,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/memoImage"
         app:layout_constraintEnd_toEndOf="@+id/memoImage"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <EditText
+        android:id="@+id/memoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:gravity="center"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
